@@ -1,0 +1,3 @@
+repository "My project/TeqShoot@3574325813946@cloud"
+  path "/"
+    smartbranch "/main"

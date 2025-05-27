@@ -3,6 +3,7 @@ using UnityEngine;
 public class ZoneCameraSwitcher : MonoBehaviour
 {
     public Camera mainCamera;
+
     public Transform cameraPointCase1;
     public Transform cameraPointCase2;
     public Transform cameraPointCase3;
@@ -55,6 +56,22 @@ public class ZoneCameraSwitcher : MonoBehaviour
             case 5: return cameraPointCase5;
             case 6: return cameraPointCase6;
             default: return null;
+        }
+    }
+
+    public void ResetCameraToCase1()
+    {
+        if (mainCamera == null)
+            mainCamera = Camera.main;
+
+        if (cameraPointCase1 != null)
+        {
+            mainCamera.transform.position = cameraPointCase1.position;
+            Debug.Log("🔁 Caméra recentrée sur Case 1");
+        }
+        else
+        {
+            Debug.LogWarning("⚠️ cameraPointCase1 non assigné pour Reset !");
         }
     }
 }

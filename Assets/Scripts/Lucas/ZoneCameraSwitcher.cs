@@ -5,6 +5,10 @@ public class ZoneCameraSwitcher : MonoBehaviour
     public Camera mainCamera;
     public Transform cameraPointCase1;
     public Transform cameraPointCase2;
+    public Transform cameraPointCase3;
+    public Transform cameraPointCase4;
+    public Transform cameraPointCase5;
+    public Transform cameraPointCase6;
 
     void Start()
     {
@@ -14,7 +18,7 @@ public class ZoneCameraSwitcher : MonoBehaviour
         if (cameraPointCase1 != null)
         {
             mainCamera.transform.position = cameraPointCase1.position;
-            Debug.Log("📷 Caméra placée sur Case 1 depuis point de repère");
+            Debug.Log("📷 Caméra placée sur Case 1 au démarrage");
         }
         else
         {
@@ -22,28 +26,35 @@ public class ZoneCameraSwitcher : MonoBehaviour
         }
     }
 
-    public void GoToCase2()
+    public void GoToCase(int caseNumber)
     {
         if (mainCamera == null)
             mainCamera = Camera.main;
 
-        if (cameraPointCase1 != null)
+        Transform target = GetCameraPoint(caseNumber);
+
+        if (target != null)
         {
-            mainCamera.transform.position = cameraPointCase2.position;
-            Debug.Log("📷 Caméra placée sur Case 1 depuis point de repère");
+            mainCamera.transform.position = target.position;
+            Debug.Log($"📷 Caméra déplacée sur Case {caseNumber}");
         }
         else
         {
-            Debug.LogWarning("⚠️ cameraPointCase2 non assigné !");
+            Debug.LogWarning($"⚠️ cameraPointCase{caseNumber} non assigné !");
         }
     }
 
-    public void ResetCameraToCase1()
+    private Transform GetCameraPoint(int caseNumber)
     {
-        if (mainCamera != null && cameraPointCase1 != null)
+        switch (caseNumber)
         {
-            mainCamera.transform.position = cameraPointCase1.position;
-            Debug.Log("🔁 Caméra recentrée sur Case 1");
+            case 1: return cameraPointCase1;
+            case 2: return cameraPointCase2;
+            case 3: return cameraPointCase3;
+            case 4: return cameraPointCase4;
+            case 5: return cameraPointCase5;
+            case 6: return cameraPointCase6;
+            default: return null;
         }
     }
 }

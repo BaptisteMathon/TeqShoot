@@ -6,12 +6,13 @@ public class PlayerHealth : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealth;
 
-
     public GameObject player;
     public HealthBar healthBar;
     public Animator animator;
     public Rigidbody2D rb;
     public AudioSource hurtSound;
+
+    public GameObject gameOverPanel;
 
     void Start()
     {
@@ -52,6 +53,10 @@ public class PlayerHealth : MonoBehaviour
         {
             animator.SetBool("Alive", false);
             GetComponent<PlayerMouvement>().enabled = false;
+
+            if (gameOverPanel != null)
+            gameOverPanel.SetActive(true);
+            gameObject.SetActive(false);
         }
     }
 }

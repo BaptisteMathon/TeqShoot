@@ -53,9 +53,9 @@ public class MenuManager : MonoBehaviour
         FindFirstObjectByType<ZoneCameraSwitcher>()?.ResetCameraToCase1();
         Debug.Log("📷 Caméra recentrée sur la Case 1 après Start");
 
-        HealthBar.SetMaxHealth(100);
-        Animator.SetBool("Alive", true);
-        GetComponent<PlayerMouvement>().enabled = true;  
+        // HealthBar.SetMaxHealth(100);
+        // Animator.SetBool("Alive", true);
+        // GetComponent<PlayerMouvement>().enabled = true;  
     }
 
     public void QuitGame()

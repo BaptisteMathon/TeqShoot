@@ -6,7 +6,7 @@ public class MenuManager : MonoBehaviour
     public GameObject menuPanel;
     public GameObject grid;
 
-    public GameObject player1;
+    public GameObject player1; 
     public GameObject player2;
 
     public Transform spawnPoint;
@@ -15,6 +15,9 @@ public class MenuManager : MonoBehaviour
     public GameObject selectedFrame2;
 
     private GameObject selectedPlayer;
+
+    public HealthBar HealthBar;
+    public Animator Animator;
 
     void Start()
     {
@@ -49,6 +52,10 @@ public class MenuManager : MonoBehaviour
 
         FindFirstObjectByType<ZoneCameraSwitcher>()?.ResetCameraToCase1();
         Debug.Log("📷 Caméra recentrée sur la Case 1 après Start");
+
+        HealthBar.SetMaxHealth(100);
+        Animator.SetBool("Alive", true);
+        GetComponent<PlayerMouvement>().enabled = true;  
     }
 
     public void QuitGame()

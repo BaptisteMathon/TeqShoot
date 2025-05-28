@@ -32,7 +32,13 @@ public class PlayerHealth : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Traps"))
         {
-            TakeDamage(10); 
+            TakeDamage(10);
+            hurtSound.Play();
+        }
+        
+        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyShot"))
+        {
+            TakeDamage(20);
             hurtSound.Play();
         }
     }

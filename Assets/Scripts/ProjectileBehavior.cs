@@ -31,9 +31,20 @@ public class ProjectileBehavior : MonoBehaviour
         transform.position += (Vector3)direction * Time.deltaTime * speed;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        if (collision.CompareTag("EnemyShot"))
+        {
+            if (explosionPrefab != null)
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            
+            Destroy(gameObject); 
+            Destroy(collision.gameObject);
+        }
+        else
+        {
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
     }
 }

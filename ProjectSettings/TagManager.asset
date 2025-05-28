@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Traps
   - Heart
+  - Shot
+  - Enemy
+  - EnemyShot
   layers:
   - Default
   - TransparentFX

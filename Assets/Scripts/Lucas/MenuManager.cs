@@ -1,5 +1,5 @@
-//MenuManager.cs
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
@@ -18,11 +18,7 @@ public class MenuManager : MonoBehaviour
 
     void Start()
     {
-        menuPanel.SetActive(true);
-        grid.SetActive(false);
-        player1.SetActive(false);
-        player2.SetActive(false);
-        HighlightSelection(null);
+        ResetToMenu();
     }
 
     public void SelectPlayer1()
@@ -53,7 +49,6 @@ public class MenuManager : MonoBehaviour
 
         FindFirstObjectByType<ZoneCameraSwitcher>()?.ResetCameraToCase1();
         Debug.Log("📷 Caméra recentrée sur la Case 1 après Start");
-
     }
 
     public void QuitGame()
@@ -61,26 +56,35 @@ public class MenuManager : MonoBehaviour
         Application.Quit();
     }
 
+    public void ResetToMenu()
+    {
+        menuPanel.SetActive(true);
+        grid.SetActive(false);
+
+        if (player1 != null) player1.SetActive(false);
+        if (player2 != null) player2.SetActive(false);
+
+        selectedPlayer = null;
+
+        HighlightSelection(null);
+        FindFirstObjectByType<ZoneCameraSwitcher>()?.ResetCameraToCase1();
+        Debug.Log("🔄 Retour au menu principal terminé !");
+    }
+
     void HighlightSelection(int? selected)
     {
         if (selectedFrame1 != null)
         {
-            var img = selectedFrame1.GetComponent<UnityEngine.UI.Image>();
+            var img = selectedFrame1.GetComponent<Image>();
             if (img != null)
                 img.color = (selected == 1) ? Color.green : Color.white;
         }
 
         if (selectedFrame2 != null)
         {
-            var img = selectedFrame2.GetComponent<UnityEngine.UI.Image>();
+            var img = selectedFrame2.GetComponent<Image>();
             if (img != null)
                 img.color = (selected == 2) ? Color.green : Color.white;
         }
     }
-
-    public void ResetGame()
-    {
-        FindFirstObjectByType<ZoneCameraSwitcher>()?.ResetCameraToCase1();
-    }
-
 }

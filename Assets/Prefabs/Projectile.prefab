@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5684442025048369818}
   - component: {fileID: 7546935937237359282}
   - component: {fileID: 3896426671178466443}
-  - component: {fileID: 4906340604424203506}
   - component: {fileID: -1716756130657201286}
+  - component: {fileID: 7965879949488092333}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Shot
@@ -98,23 +98,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 2
---- !u!114 &4906340604424203506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 526299889581181323}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1d8bc04d8cb6474baa01f2ae2271bda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  projectileSound: {fileID: -1716756130657201286}
-  player: {fileID: 0}
-  explosionPrefab: {fileID: 1842588693392184769, guid: f3049a8775cbc4143adeba3b3d678baf, type: 3}
-  direction: {x: 1, y: 0}
 --- !u!82 &-1716756130657201286
 AudioSource:
   m_ObjectHideFlags: 0
@@ -211,6 +194,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7965879949488092333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526299889581181323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c38f1444c33e40f1a8b5f855b80ba71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  projectileSound: {fileID: -1716756130657201286}
+  player: {fileID: 0}
+  explosionPrefab: {fileID: 1842588693392184769, guid: f3049a8775cbc4143adeba3b3d678baf, type: 3}
+  direction: {x: 1, y: 0}
 --- !u!1 &5219411418745328018
 GameObject:
   m_ObjectHideFlags: 0

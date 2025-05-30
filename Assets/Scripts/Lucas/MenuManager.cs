@@ -19,9 +19,13 @@ public class MenuManager : MonoBehaviour
     public HealthBar HealthBar;
     public Animator Animator;
 
+    // public GameObject timer;
+
     void Start()
     {
+        // timer = GameObject.FindWithTag("Timer");
         ResetToMenu();
+        // timer.SetActive(false);
     }
 
     public void SelectPlayer1()
@@ -53,9 +57,11 @@ public class MenuManager : MonoBehaviour
         FindFirstObjectByType<ZoneCameraSwitcher>()?.ResetCameraToCase1();
         Debug.Log("📷 Caméra recentrée sur la Case 1 après Start");
 
-        // HealthBar.SetMaxHealth(100);
-        // Animator.SetBool("Alive", true);
-        // GetComponent<PlayerMouvement>().enabled = true;  
+        HealthBar.SetMaxHealth(100);
+        Animator.SetBool("Alive", true);
+        selectedPlayer.GetComponent<PlayerMouvement>().enabled = true;
+
+        // timer.SetActive(true);
     }
 
     public void QuitGame()

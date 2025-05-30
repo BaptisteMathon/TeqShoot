@@ -9,6 +9,7 @@ TagManager:
   - Shot
   - Enemy
   - EnemyShot
+  - Timer
   layers:
   - Default
   - TransparentFX

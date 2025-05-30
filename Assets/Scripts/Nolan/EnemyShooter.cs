@@ -8,6 +8,8 @@ public class EnemyShooter : MonoBehaviour
     public Animator animator;
 
     public Transform player;  
+
+    public PlayerHealth playerHealth;
     public float shootingRange = 10f; 
 
     private float timer;
@@ -39,9 +41,9 @@ public class EnemyShooter : MonoBehaviour
 
     void Shoot()
     {
-        Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+        Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);        
     }
-    
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (isDead) return;
@@ -49,6 +51,20 @@ public class EnemyShooter : MonoBehaviour
         if (collision.CompareTag("Shot") && !isDead)
         {
             Die();
+        }
+
+        if (collision.CompareTag("Player"))
+        {
+            playerHealth.currentHealth -= 20;
+            playerHealth.healthBar.SetHealth(playerHealth.currentHealth);
+
+            if(playerHealth.currentHealth <= 0)
+            {
+                playerHealth.animator.SetBool("Alive", false);
+                playerHealth.GetComponent<PlayerMouvement>().enabled = false;
+                playerHealth.gameOverPanel.SetActive(true);
+                playerHealth.gameObject.SetActive(false);
+            }
         }
     }
 

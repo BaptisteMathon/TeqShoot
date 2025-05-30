@@ -8,16 +8,12 @@ public class EnemyPatrol : MonoBehaviour
     public Animator animator;
 
     private Transform target;
-
-    public PlayerHealth playerHealth;
-
     private int destPoint = 0;
     private bool isDead = false;
 
     void Start()
     {
         target = waypoints[0];
-        // playerHealth = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()
@@ -43,16 +39,7 @@ public class EnemyPatrol : MonoBehaviour
 
         if (collision.CompareTag("Player"))
         {
-            playerHealth.currentHealth -= 20;
-            playerHealth.healthBar.SetHealth(playerHealth.currentHealth);
-
-            if(playerHealth.currentHealth <= 0)
-            {
-                playerHealth.animator.SetBool("Alive", false);
-                playerHealth.GetComponent<PlayerMouvement>().enabled = false;
-                playerHealth.gameOverPanel.SetActive(true);
-                playerHealth.gameObject.SetActive(false);
-            }
+            Debug.Log("Le joueur a été touché par un ennemi !");
         }
 
         if (collision.CompareTag("Shot") && !isDead)

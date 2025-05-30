@@ -176,7 +176,7 @@ Animator:
   m_GameObject: {fileID: 2413853315030420798}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d8b801c3136d7dd46b6b89e87d7fc6d0, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4c4d4c2e4429b28469b9230db099cd55, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -204,6 +204,7 @@ MonoBehaviour:
   fireRate: 1
   animator: {fileID: 2599648042571570795}
   player: {fileID: 0}
+  playerHealth: {fileID: 0}
   shootingRange: 50
 --- !u!1 &6033430855389644231
 GameObject:
@@ -263,11 +264,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2858316673390693500, guid: 20e025a742af58c44b6329729cd3127e, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2858316673390693500, guid: 20e025a742af58c44b6329729cd3127e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2858316673390693500, guid: 20e025a742af58c44b6329729cd3127e, type: 3}
       propertyPath: m_LocalPosition.x
